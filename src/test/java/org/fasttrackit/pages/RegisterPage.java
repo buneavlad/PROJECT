@@ -20,6 +20,12 @@ public class RegisterPage extends PageObject {
     @FindBy(css="#post-13 p:first-child")
     private WebElementFacade getWelcomeMessage;
 
+    @FindBy(css=".woocommerce-error li")
+    private WebElementFacade errorRegistrationMessage;
+
+    @FindBy(css="polite")
+    private WebElementFacade errorWeakPassword;
+
 
     public void setEmailField (String email){
         typeInto(emailField,email);
@@ -35,6 +41,22 @@ public class RegisterPage extends PageObject {
         return getWelcomeMessage.getText();
 
     }
+    public String errorMessage (){
+        return errorRegistrationMessage.getText();
+    }
+
+    public boolean tryToClickOnRegisterButton(){
+       try{
+           if(registerButton.isEnabled()){
+               registerButton.click();
+               return false;
+           }
+       }catch (Exception e){
+           System.out.println("Element is disabled");
+       }return true;
+    }
+
+
 
 
 

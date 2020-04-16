@@ -11,9 +11,13 @@ public class Homepage extends PageObject {
     @FindBy(css="a[title=\"Login\"]")
     private WebElementFacade signinRegisterButton;
 
+    @FindBy(css="#menu-item-1643 > a")
+    private WebElementFacade blogButton;
+
     public void signInRegisterButton(){
         clickOn(signinRegisterButton);
     }
+    public void clickBlogButton(){clickOn(blogButton);}
 
 
 }

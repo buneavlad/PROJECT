@@ -26,9 +26,20 @@ public class RegisterSteps {
         registerPage.clickRegister();
     }
     @Step
-    public void getWelcomeMesage(String expected){
+    public void getWelcomeMessage(String expected){
         String message = registerPage.welcomeMessage();
         Assert.assertEquals(expected,message);
 
     }
+    @Step
+    public void getErrorMessage(String expected){
+        String message = registerPage.errorMessage();
+        Assert.assertEquals(expected,message);
+    }
+    @Step
+    public void tryToClick(){
+        Assert.assertTrue(registerPage.tryToClickOnRegisterButton());
+    }
+
+
 }
