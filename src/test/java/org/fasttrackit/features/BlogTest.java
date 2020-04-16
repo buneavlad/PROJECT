@@ -11,11 +11,29 @@ public class BlogTest extends BaseTest {
     private BlogSteps blogSteps;
 
     @Test
-    public void addCommentToBlog(){
-        String name = RandomStringUtils.randomAlphabetic(5);
-        String comment=RandomStringUtils.randomAlphabetic(15);
-        blogSteps.postComment(comment,name,"vladovidiubunea@gmail.com");
+    public void addCommentToBlog() {
+        String name = RandomStringUtils.randomAlphabetic(6);
+        String comment = RandomStringUtils.randomAlphabetic(15);
+        blogSteps.postComment(comment, name, "vladovidiubunea@gmail.com");
         blogSteps.findThePostedComment(name);
     }
 
+    @Test
+    public void tryToPostCommentWithoutName() {
+        blogSteps.postComment("asac", "", "vladovidiubunea@gmail.com");
+        blogSteps.errorNameAndEmailField("ERROR: please fill the required fields (name, email).");
+    }
+
+    @Test
+    public void tryToPostCommentWithoutEmail() {
+        blogSteps.postComment("asad", "vlad", "");
+        blogSteps.errorNameAndEmailField("ERROR: please fill the required fields (name, email).");
+    }
+
+    @Test
+    public void tryToPostCommentWithoutComment() {
+        blogSteps.postComment("", "vlad", "vladovidiubunea@gmail.com");
+        blogSteps.errorCommentField("ERROR: please type a comment.");
+
+    }
 }

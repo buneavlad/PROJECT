@@ -26,4 +26,18 @@ public class BlogSteps {
     public void findThePostedComment(String name){
         Assert.assertTrue(blogPage.getNameOfCommentator(name));
     }
+
+    @Step
+    public void errorNameAndEmailField(String expected){
+        String name = blogPage.nameAndEmailFieldError();
+        Assert.assertEquals(expected,name);
+
+    }
+    @Step
+    public void errorCommentField(String expected){
+        String name = blogPage.commentFieldError();
+        Assert.assertEquals(expected,name);
+    }
+
+
 }

@@ -25,6 +25,12 @@ public class BlogPage extends PageObject {
     @FindBy(css="li article")
     private List<WebElementFacade> nameLists;
 
+    @FindBy(css="#error-page > p:nth-child(2)")
+    private WebElementFacade errorNameAndEmailField;
+
+    @FindBy(css="body p:nth-child(2)")
+    private WebElementFacade errorCommentField;
+
     public void setCommentsFieldField(String comment){
         typeInto(commentsField,comment);
 
@@ -48,6 +54,12 @@ public class BlogPage extends PageObject {
             }
 
         }return false;
+    }
+    public String nameAndEmailFieldError(){
+        return errorNameAndEmailField.getText();
+    }
+    public String commentFieldError(){
+        return errorCommentField.getText();
     }
 
 
