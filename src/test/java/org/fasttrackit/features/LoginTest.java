@@ -17,7 +17,7 @@ public class LoginTest extends Constants {
     private LoginSteps loginSteps;
 
     @Test
-    public void testValidLogin(){
+    public void ValidLogin(){
         loginSteps.navigateToLoginPage();
         loginSteps.setCredentials(USER_EMAIL, USER_PASSWORD);
         loginSteps.clickLogin();
@@ -27,7 +27,7 @@ public class LoginTest extends Constants {
     }
 
     @Test
-    public void TestInvalidPasswordLogin(){
+    public void InvalidPasswordLogin(){
         loginSteps.navigateToLoginPage();
         loginSteps.setCredentials(USER_EMAIL, "123456");
         loginSteps.clickLogin();
@@ -36,12 +36,19 @@ public class LoginTest extends Constants {
 
     }
     @Test
-    public void TestInvalidEmailLogin(){
+    public void InvalidEmailLogin(){
         loginSteps.navigateToLoginPage();
         loginSteps.setCredentials("asdf@gmail.com", "buneavlad12345");
         loginSteps.clickLogin();
         loginSteps.checkErrorMessage("ERROR: Invalid email address. Lost your password?");
 
+    }
+
+    @Test
+    public void ResetPassword(){
+        loginSteps.navigateToLoginPage();
+        loginSteps.resetPasword("vlad@mailinator.com");
+        loginSteps.resetPasswordMessage("Password reset email has been sent.");
     }
 
 

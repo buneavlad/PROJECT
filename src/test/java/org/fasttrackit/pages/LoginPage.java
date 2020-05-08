@@ -22,6 +22,18 @@ public class LoginPage extends PageObject {
     @FindBy(css="#post-13 li")
     private WebElementFacade errorInvalidPassword;
 
+    @FindBy(css="p.woocommerce-LostPassword.lost_password > a")
+    private WebElementFacade lostPasswordLink;
+
+    @FindBy(css="input[name=\"user_login\"]")
+    private WebElementFacade emailOrUsernameRecoveryField;
+
+    @FindBy(css="button[value=\"Reset password\"]")
+    private WebElementFacade resetPasswordButton;
+
+    @FindBy(css="div.woocommerce-message")
+    private WebElementFacade resetPasswordMessage;
+
 
     public void setEmailField(String email){
         typeInto(emailField,email);
@@ -42,4 +54,18 @@ public class LoginPage extends PageObject {
     public String errorMessage(){
         return errorInvalidPassword.getText();
     }
+
+    public void clickLostPassword(){
+        clickOn(lostPasswordLink);
+    }
+    public void setEmailOrUsernameRecoveryField(String user){
+        typeInto(emailOrUsernameRecoveryField,user);
+    }
+    public void clickResetPassword(){
+        clickOn(resetPasswordButton);
+    }
+    public String resetMesasge(){
+        return resetPasswordMessage.getText();
+    }
 }
+

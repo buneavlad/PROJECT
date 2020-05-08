@@ -3,6 +3,7 @@ package org.fasttrackit.features;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Managed;
 import net.thucydides.core.annotations.Steps;
+import org.apache.commons.lang3.RandomStringUtils;
 import org.fasttrackit.steps.RegisterSteps;
 import org.fasttrackit.utils.Constants;
 import org.junit.Test;
@@ -19,10 +20,11 @@ public class RegisterTest extends Constants {
 
     @Test
     public void validRegister(){
+        String email = RandomStringUtils.randomAlphabetic(8);
         registerSteps.navigateToRegisterPage();
-        registerSteps.setCredentials("vlad123456777@mailinator.com","testfast12345");
+        registerSteps.setCredentials(email+"@mailinator.com","testfast12345");
         registerSteps.clickonRegisterButton();
-        registerSteps.getWelcomeMessage("Hello vlad123456777 (not vlad123456777? Log out)");
+        registerSteps.getWelcomeMessage("Hello" +" "+email+ " "+"(not"+""+" " +email+"? Log out)");
 
 
 

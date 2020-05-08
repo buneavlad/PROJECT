@@ -5,24 +5,35 @@ import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.annotations.DefaultUrl;
 
+import java.util.List;
+
 @DefaultUrl("http://qa3.fasttrackit.org:8008/shop")
 public class ShopPage extends PageObject {
-    @FindBy(css="#main > ul > li.post-2627.product.type-product.status-publish.product_cat-uncategorized.first.instock.sale.shipping-taxable.purchasable.product-type-simple > a.woocommerce-LoopProduct-link.woocommerce-loop-product__link > h2")
-    private WebElementFacade abcProduct;
+    @FindBy(css="li[class*='post-']:nth-child(2)")
+    private WebElementFacade product;
 
-    @FindBy(css="#product-2627 > div.summary.entry-summary > form > button")
-    private WebElementFacade addAbcProduct;
+    @FindBy(css="button[type=\"submit\"]")
+    private WebElementFacade addproduct;
+
 
     @FindBy(css="div.woocommerce-message")
     private WebElementFacade addToCartMessage;
 
 
 
-public void clickAbcProduct(){clickOn(abcProduct);}
-public void clickAddAbcProduct(){clickOn(addAbcProduct);}
+
+
+
+
+
+public void clickProduct(){clickOn(product);}
+public void clickAddProduct(){clickOn(addproduct);}
 public String getCartMessage(){
     return addToCartMessage.getText();
 }
+
+
+
 
 
 }

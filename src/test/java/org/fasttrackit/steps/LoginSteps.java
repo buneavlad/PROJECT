@@ -41,5 +41,19 @@ public class LoginSteps {
 
     }
 
+    @Step
+    public void resetPasword(String user){
+        loginPage.clickLostPassword();
+        loginPage.setEmailOrUsernameRecoveryField(user);
+        loginPage.clickResetPassword();
+    }
+
+    @Step
+    public void resetPasswordMessage(String expected){
+        String text=loginPage.resetMesasge();
+        Assert.assertEquals(expected,text);
+    }
+
+
 
 }
