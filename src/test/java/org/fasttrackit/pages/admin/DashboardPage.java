@@ -14,14 +14,27 @@ public class DashboardPage extends PageObject {
     @FindBy(css="#wp-admin-bar-site-name > a")
     private WebElementFacade frontHomePage;
 
-    public void hoveroverProductPage() {
+    @FindBy(css="#menu-posts-product > ul > li:nth-child(4) > a")
+    private WebElementFacade categories;
+
+
+
+    public void hoveroverProducts() {
         Actions action = new Actions(getDriver());
         WebElement element = getDriver().findElement(By.cssSelector("#menu-posts-product > a > div.wp-menu-name"));
         action.moveToElement(element).perform();
-        addNewProduct.click();
+
     }
     public void clickfrontHomePage(){
         clickOn(frontHomePage);
+    }
+
+    public void clickAddNewProduct(){
+        clickOn(addNewProduct);
+    }
+
+    public void clickCategories(){
+        clickOn(categories);
     }
 
 

@@ -33,6 +33,15 @@ public class ProductPage extends PageObject {
     @FindBy(id="message")
     private WebElementFacade productMessage;
 
+    @FindBy(css="a[class=\"wp-first-item current\"]")
+    private WebElementFacade allProducts;
+
+    @FindBy(css="a[class=\"submitdelete\"]")
+    private WebElementFacade moveToTrashProduct;
+
+    @FindBy(css="#message > p")
+    private WebElementFacade removeProductMesage;
+
 
     public void addTitle(String name){
         typeInto(addTitle,name);
@@ -46,6 +55,7 @@ public class ProductPage extends PageObject {
         typeInto(addPrice,price);
         JavascriptExecutor js = (JavascriptExecutor) getDriver();
         js.executeScript("window.scrollBy(0,-250)", "");
+
     }
     public void clickPublishButton(){
         publishButton.withTimeoutOf(5,TimeUnit.SECONDS).waitUntilClickable();
@@ -54,6 +64,22 @@ public class ProductPage extends PageObject {
 
     public String checkProductMessage(){
         return productMessage.getText();
+    }
+
+    public void clickAllProducts(){clickOn(allProducts);}
+
+    public void hoveroverAddedProduct() {
+        Actions action = new Actions(getDriver());
+        WebElement element = getDriver().findElement(By.cssSelector("a[class=\"row-title\"]"));
+        action.moveToElement(element).perform();
+
+    }
+    public void clickTrashButton(){
+        clickOn(moveToTrashProduct);
+    }
+
+    public String removeProductMessage (){
+        return removeProductMesage.getText();
     }
 
 

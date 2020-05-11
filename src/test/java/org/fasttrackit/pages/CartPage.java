@@ -95,12 +95,14 @@ public class CartPage extends PageObject {
                 getText().replace(",00 lei","");
         int second = Integer.parseInt(secondPrice);
 
-        String subtotalSum= subtotal.getText().replace("0,00 lei","");
+        String subtotalSum= subtotal.getText().replace(",00 lei","");
         int subtot = Integer.parseInt(subtotalSum);
 
         int sum = first+second;
+        System.out.println(subtot);
         if(sum==subtot){
             return true;
+
         }return false;
     }
 

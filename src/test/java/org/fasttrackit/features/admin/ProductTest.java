@@ -26,5 +26,26 @@ public class ProductTest extends BaseTest {
                 "Dismiss this notice.");
     }
 
+    @Test
+    public void RemoveProduct(){
+        String text = RandomStringUtils.randomAlphabetic(20);
+        loginSteps.LoginInAdmin("admin","parola11");
+        productSteps.addProduct("testfast",text,"10");
+        productSteps.moveToTrash();
+        productSteps.getRemoveProductMessage("1 product moved to the Trash. Undo");
+
+    }
+
+    @Test
+    public void AddnewCategoryOfProducts(){
+        String text = RandomStringUtils.randomAlphabetic(10);
+        String name = RandomStringUtils.randomAlphabetic(4);
+        loginSteps.LoginInAdmin("admin","parola11");
+        productSteps.addNewCategory(name,text);
+        productSteps.getTitleofCategory(name);
+
+
+    }
+
 
 }
