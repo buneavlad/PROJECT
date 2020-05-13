@@ -20,6 +20,9 @@ public class DashboardPage extends PageObject {
     @FindBy(css = "#menu-comments > a > div.wp-menu-name")
     private WebElementFacade commentsPage;
 
+    @FindBy(css="li.wp-first-item.current > a")
+    private WebElementFacade allPosts;
+
 
 
     public void hoveroverProducts() {
@@ -49,6 +52,10 @@ public class DashboardPage extends PageObject {
         Actions action = new Actions(getDriver());
         WebElement element = getDriver().findElement(By.cssSelector("#menu-posts > a > div.wp-menu-name"));
         action.moveToElement(element).perform();
+    }
+
+    public void clickAllPosts(){
+        clickOn(allPosts);
     }
 
 

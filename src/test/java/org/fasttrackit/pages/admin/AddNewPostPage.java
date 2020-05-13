@@ -1,8 +1,11 @@
 package org.fasttrackit.pages.admin;
 
+import net.serenitybdd.core.annotations.findby.By;
 import net.serenitybdd.core.annotations.findby.FindBy;
 import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 
 public class AddNewPostPage extends PageObject {
 
@@ -28,4 +31,6 @@ public class AddNewPostPage extends PageObject {
     public String getPublishMessage(){
         return publishMessage.getText();
     }
+
+
 }
