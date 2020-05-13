@@ -17,6 +17,9 @@ public class DashboardPage extends PageObject {
     @FindBy(css="#menu-posts-product > ul > li:nth-child(4) > a")
     private WebElementFacade categories;
 
+    @FindBy(css = "#menu-comments > a > div.wp-menu-name")
+    private WebElementFacade commentsPage;
+
 
 
     public void hoveroverProducts() {
@@ -36,6 +39,19 @@ public class DashboardPage extends PageObject {
     public void clickCategories(){
         clickOn(categories);
     }
+
+    public void clickCommentsPage(){
+        clickOn(commentsPage);
+    }
+
+
+    public void hoveroverPosts() {
+        Actions action = new Actions(getDriver());
+        WebElement element = getDriver().findElement(By.cssSelector("#menu-posts > a > div.wp-menu-name"));
+        action.moveToElement(element).perform();
+    }
+
+
 
 
 }
