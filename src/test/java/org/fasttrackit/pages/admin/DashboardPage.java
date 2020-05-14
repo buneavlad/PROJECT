@@ -23,6 +23,12 @@ public class DashboardPage extends PageObject {
     @FindBy(css="li.wp-first-item.current > a")
     private WebElementFacade allPosts;
 
+    @FindBy(css="#toplevel_page_woocommerce > ul > li:nth-child(3) > a")
+    private WebElementFacade coupuns;
+
+    @FindBy(css="#toplevel_page_woocommerce > ul > li.wp-first-item > a")
+    private WebElementFacade orders;
+
 
 
     public void hoveroverProducts() {
@@ -57,6 +63,21 @@ public class DashboardPage extends PageObject {
     public void clickAllPosts(){
         clickOn(allPosts);
     }
+
+    public void hoveroverWooCommerce() {
+        Actions action = new Actions(getDriver());
+        WebElement element = getDriver().findElement(By.cssSelector("#toplevel_page_woocommerce > a > div.wp-menu-name"));
+        action.moveToElement(element).perform();
+    }
+
+    public void clickCoupon(){
+        clickOn(coupuns);
+    }
+
+    public void clickOrders(){
+        clickOn(orders);
+    }
+
 
 
 

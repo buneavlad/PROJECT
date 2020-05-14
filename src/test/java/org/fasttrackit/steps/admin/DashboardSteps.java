@@ -18,6 +18,9 @@ public class DashboardSteps {
     @Step
     public void hoveroverPostsPage(){dash.hoveroverPosts();}
 
+    @Step
+    public void hoveroverWooCommmerce(){dash.hoveroverWooCommerce();}
+
 
 
 

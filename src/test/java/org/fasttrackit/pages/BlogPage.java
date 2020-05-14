@@ -45,6 +45,7 @@ public class BlogPage extends PageObject {
     }
 
     public void clickPostCommentButton() {
+        waitABit(4000);
         clickOn(clickPostComment);
     }
 

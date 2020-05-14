@@ -33,6 +33,7 @@ public class CommentsPage extends PageObject {
     }
 
     public void clickApproveButton(){
+        waitFor(5000);
         clickOn(approveButton);
     }
 
@@ -45,6 +46,7 @@ public class CommentsPage extends PageObject {
     }
 
     public String getTrashMessage(){
+        waitFor(5000);
         return trashMessage.getText();
     }
 
